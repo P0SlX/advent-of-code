@@ -115,10 +115,10 @@ int main() {
     regfree(&regex);
     regfree(&regexReverse);
 
-
     diff = clock() - start;
     printf("Temps d'exécution %ld nanoseconds\n", diff);
 
     printf("Résultat : %d\n", total);
+    fclose(fptr);
     return 0;
 }

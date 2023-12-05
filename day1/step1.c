@@ -5,8 +5,8 @@
 
 int main() {
     clock_t start = clock(), diff;
-    char line[1000];
     int total = 0;
+    char line[1000];
 
     // Lecture du fichier
     FILE *fptr;
@@ -36,5 +36,6 @@ int main() {
     printf("Temps d'exécution %ld nanoseconds\n", diff);
 
     printf("Résultat : %d\n", total);
+    fclose(fptr);
     return 0;
 }
