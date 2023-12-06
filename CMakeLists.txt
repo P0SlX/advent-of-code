@@ -21,6 +21,7 @@ add_executable(day3_step1 day3/step1.c)
 add_executable(day3_step2 day3/step2.c)
 
 add_executable(day6_step1 day6/step1.c)
+add_executable(day6_step2 day6/step2.c)
 
 # Copy all .txt files in inputs/ to the build directory after build
 file(GLOB INPUTS "inputs/*.txt")
