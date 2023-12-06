@@ -20,6 +20,8 @@ add_executable(day2_step2 day2/step2.c)
 add_executable(day3_step1 day3/step1.c)
 add_executable(day3_step2 day3/step2.c)
 
+add_executable(day4_step1 day4/step1.c)
+
 add_executable(day6_step1 day6/step1.c)
 add_executable(day6_step2 day6/step2.c)
 
