@@ -18,7 +18,7 @@ int main() {
     int mapWidth = 0, mapHeight = 0;
     char **map = NULL;
 
-// Lit le fichier ligne par ligne
+    // Lit le fichier ligne par ligne
     char line[1000];
     while (fgets(line, sizeof(line), fptr)) {
         // Suppression du caractère de fin de ligne
