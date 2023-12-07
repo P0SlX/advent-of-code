@@ -14,7 +14,7 @@ typedef struct {
 } Hand;
 
 int cardToIndex(const char *card) {
-    static const char *cardOrder = "J23456789TQKA";
+    const char *cardOrder = "J23456789TQKA";
     char *ptr = strchr(cardOrder, *card);
     return ptr ? (int) (ptr - cardOrder) : -1;
 }
@@ -23,18 +23,19 @@ int cardsStrength(char *cards) {
     char count[13] = {0};
     int i = 5, j = 0, threes = 0, twos = 0;
 
+    // Compte les cartes
     while (i--) {
         if (cards[i] == 'J') j++;
         count[cardToIndex(&cards[i])]++;
     }
 
+    // Détermine la force de la main
     for (i = 0; i < 13; i++) {
         switch (count[i]) {
             case 5:
                 return 6;
             case 4:
-                if (j) return 6;
-                return 5;
+                return j ? 6 : 5;
             case 3:
                 threes++;
                 break;
@@ -43,14 +44,15 @@ int cardsStrength(char *cards) {
                 break;
         }
     }
+
     if (threes && twos) {
-        if (j) return 6;
-        return 4;
+        return j ? 6 : 4;
     }
+
     if (threes) {
-        if (j) return 5;
-        return 3;
+        return j ? 5 : 3;
     }
+
     if (twos == 2) {
         switch (j) {
             case 1:
@@ -61,6 +63,7 @@ int cardsStrength(char *cards) {
                 return 2;
         }
     }
+
     if (twos == 1) {
         switch (j) {
             case 1:
@@ -71,8 +74,7 @@ int cardsStrength(char *cards) {
         }
     }
 
-    if (j == 1) return 1;
-    return 0;
+    return j ? 1 : 0;
 }
 
 int compareHands(const void *in_a, const void *in_b) {
