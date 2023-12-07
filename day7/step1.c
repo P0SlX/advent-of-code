@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 #define MAX_HANDS 1000
 #define LINE_BUFFER_SIZE 100
@@ -135,6 +136,7 @@ int calculateWinnings(Hand *hands, int size) {
 }
 
 int main() {
+    clock_t startTime = clock(), diff;
     Hand *hands = malloc(MAX_HANDS * sizeof(Hand));
 
     int count = readInput(hands);
@@ -145,7 +147,9 @@ int main() {
     qsort(hands, count, sizeof(Hand), compareHands);
 
     int totalWinnings = calculateWinnings(hands, count);
+    diff = clock() - startTime;
     printf("Total winnings: %d\n", totalWinnings);
+    printf("Temps d'exécution %ld nanoseconds\n", diff);
     free(hands);
     return 0;
 }
