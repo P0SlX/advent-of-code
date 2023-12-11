@@ -28,6 +28,9 @@ add_executable(day6_step2 day6/step2.c)
 add_executable(day7_step1 day7/step1.c)
 add_executable(day7_step2 day7/step2.c)
 
+add_executable(day8_step1 day8/step1.c)
+add_executable(day8_step2 day8/step2.c)
+
 # Copy all .txt files in inputs/ to the build directory after build
 file(GLOB INPUTS "inputs/*.txt")
 file(COPY ${INPUTS} DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
