@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.5)
 project(adventofcode C)
 
 set(CMAKE_C_STANDARD 23)
@@ -21,6 +21,7 @@ add_executable(day3_step1 day3/step1.c)
 add_executable(day3_step2 day3/step2.c)
 
 add_executable(day4_step1 day4/step1.c)
+add_executable(day4_step2 day4/step2.c)
 
 add_executable(day6_step1 day6/step1.c)
 add_executable(day6_step2 day6/step2.c)

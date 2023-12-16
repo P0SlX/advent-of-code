@@ -71,7 +71,7 @@ int count_matches(Node *node) {
     int matches = 0;
     for (int i = 0; i < MY_NUMBERS; i++) {
         if (contains(node->winning_numbers, WINNING_NUMBERS, node->my_numbers[i])) {
-            matches == 0 ? (matches = 1) : (matches *= 2);
+            matches++;
         }
     }
     return matches;
@@ -81,11 +81,23 @@ int count_matches(Node *node) {
 int process_scratchcards(Node *head) {
     int card_counts[TOTAL_CARDS] = {0};
 
-    Node *node = head;
-
+    // Initialise tous les éléments à 1
     for (int i = 0; i < TOTAL_CARDS; i++) {
-        card_counts[i] = count_matches(node);
+        card_counts[i] = 1;
+    }
+
+    Node *node = head;
+    int i = 0;
+
+    while (node != NULL) {
+        int matches = count_matches(node);
+
+        for (int j = i + 1; j < i + 1 + matches && j < TOTAL_CARDS; j++) {
+            card_counts[j] += card_counts[i];
+        }
+
         node = node->next;
+        i++;
     }
 
     int total = 0;
